@@ -100,11 +100,8 @@ export class HotelEditComponent implements OnInit {
   }
 
   getTilte(){
-<<<<<<< HEAD
     if(this.hotel?.id==0){
-=======
-    if(this.hotel?.hotelId==0){
->>>>>>> origin/master
+
       return 'créer un hotel';
     }else{
       return `Modifier l\'hotel ${this.hotel?.hotelName}`

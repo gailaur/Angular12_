@@ -4,6 +4,7 @@ import {HttpClient, HttpErrorResponse} from "@angular/common/http";
 import {Observable, throwError, of} from "rxjs";
 import {catchError, map, tap} from "rxjs/operators";
 import * as url from "url";
+import {error} from "@angular/compiler/src/util";
 
 @Injectable({
   providedIn: 'root'
@@ -51,10 +52,7 @@ export class HotelListService {
     ];
   } */
 
-<<<<<<< HEAD
 
-=======
->>>>>>> origin/master
   // getAll
   public getHotels(): Observable <IHotel[]>{
     return this.http.get<IHotel[]>(this.HOTEL_API_URL).pipe(
@@ -64,11 +62,8 @@ export class HotelListService {
   }
 
   //getOne
-<<<<<<< HEAD
+
   /*public getHotelById(id:number): Observable<IHotel>{
-=======
-  public getHotelById(id:number): Observable<IHotel>{
->>>>>>> origin/master
 
     if(id==0){
       return  of(this.getDefaultHotel());
@@ -90,7 +85,17 @@ export class HotelListService {
     );
   }
 
-<<<<<<< HEAD
+  private getDefaultHotel():IHotel{
+    return {
+      id: 0,
+      hotelName: null,
+      description: null,
+      price: null,
+      rating: null,
+      category: null,
+      imageUrl: null
+    }
+  }
   public updateHotel(hotel:IHotel): Observable<IHotel>{
     const url = `${this.HOTEL_API_URL}/${hotel.id}`;
 
@@ -99,46 +104,26 @@ export class HotelListService {
     );
   }
 
-  createHotel(hotel: IHotel): Observable<IHotel>{
+    createHotel(hotel: IHotel): Observable<IHotel>{
     return this.http.post<IHotel>(this.HOTEL_API_URL, hotel).pipe(
       catchError(this.handleError)
     );
   }
 
-  private getDefaultHotel():IHotel{
-    return {
-      id: 0,
-=======
-  private getDefaultHotel():IHotel{
-    return {
-      hotelId: 0,
->>>>>>> origin/master
-      hotelName: null,
-      description: null,
-      price: null,
-      rating: null,
-<<<<<<< HEAD
-=======
-      category: null,
->>>>>>> origin/master
-      imageUrl: null
+
+  private handleError(error :HttpErrorResponse)
+    {
+      if (error.status === 0) {
+        // A client-side or network error occurred. Handle it accordingly.
+        console.error('An error occurred:', error.error);
+      } else {
+        // The backend returned an unsuccessful response code.
+        // The response body may contain clues as to what went wrong.
+        console.error(
+          `Backend returned code ${error.status}, body was: `, error.error);
+      }
+      // Return an observable with a user-facing error message.
+      return throwError(
+        'Something bad happened; please try again later.');
     }
-  }
-  private handleError(error: HttpErrorResponse) {
-    if (error.status === 0) {
-      // A client-side or network error occurred. Handle it accordingly.
-      console.error('An error occurred:', error.error);
-    } else {
-      // The backend returned an unsuccessful response code.
-      // The response body may contain clues as to what went wrong.
-      console.error(
-        `Backend returned code ${error.status}, body was: `, error.error);
-    }
-    // Return an observable with a user-facing error message.
-    return throwError(
-      'Something bad happened; please try again later.');
-  }
-
-
-
 }

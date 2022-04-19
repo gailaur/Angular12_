@@ -9,13 +9,11 @@ import {HotelDetailGuard} from "../shared/guards/hotel-detail.guard";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatIconModule} from "@angular/material/icon";
 import {HotelEditComponent} from "./hotel-edit/hotel-edit.component";
-<<<<<<< HEAD
 import {InMemoryWebApiModule} from "angular-in-memory-web-api";
 import {HotelData} from "../shared/api/hotel.data";
-=======
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatSelectModule} from "@angular/material/select";
->>>>>>> origin/master
+
 
 const routes: Routes = [
   {path: '', component:HotelListComponent},
@@ -39,13 +37,10 @@ const routes: Routes = [
     ReactiveFormsModule,
     RouterModule.forChild(routes),
     MatIconModule,
-<<<<<<< HEAD
-    InMemoryWebApiModule.forFeature(HotelData)
-
-=======
+    InMemoryWebApiModule.forFeature(HotelData),
     MatFormFieldModule,
     MatSelectModule,
->>>>>>> origin/master
+
   ]
 })
 export class HotelModule { }

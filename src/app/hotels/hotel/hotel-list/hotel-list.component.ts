@@ -51,13 +51,9 @@ export class HotelListComponent implements OnInit {
     this.filteredHotels = this.hotelFilter ? this.filterHotels(this.hotelFilter) : this.hotels;
   }
 
-<<<<<<< HEAD
   public filterHotels(criteria:string): IHotel[]{
     criteria = criteria.toLocaleLowerCase();
-=======
-  private filterHotels(criteria:string): IHotel[]{
-      criteria = criteria.toLocaleLowerCase();
->>>>>>> origin/master
+
     const res = this.hotels.filter(
       (hotel: IHotel) => hotel.hotelName.toLocaleLowerCase().indexOf(criteria) != -1
     );

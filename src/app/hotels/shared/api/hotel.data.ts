@@ -12,6 +12,7 @@ export class HotelData implements InMemoryDbService{
         description: 'Belle vue au bord de la mer',
         price: 230.5,
         imageUrl: 'assets/images/1.png',
+        category: "A",
         rating: 3.5
       },
       {
@@ -20,6 +21,7 @@ export class HotelData implements InMemoryDbService{
         description: 'Profitez de la vue sur les montagnes',
         price: 145.5,
         imageUrl: 'assets/images/2.jpg',
+        category: "B",
         rating: 5
       },
       {
@@ -28,6 +30,7 @@ export class HotelData implements InMemoryDbService{
         description: 'Séjour complet avec service de voitures',
         price: 120.12,
         imageUrl: 'assets/images/3.png',
+        category: "A",
         rating: 4
       },
       {
@@ -36,9 +39,9 @@ export class HotelData implements InMemoryDbService{
         description: 'Magnifique cadre pour votre séjour',
         price: 135.12,
         imageUrl: 'assets/images/4.jpg',
+        category: "B",
         rating: 2.5
       }
-
     ];
     return {hotels};
   }
