@@ -3,8 +3,6 @@ import {IHotel} from "../models/hotel";
 import {HttpClient, HttpErrorResponse} from "@angular/common/http";
 import {Observable, throwError, of} from "rxjs";
 import {catchError, map, tap} from "rxjs/operators";
-import * as url from "url";
-import {error} from "@angular/compiler/src/util";
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +11,7 @@ export class HotelListService {
 
   private readonly HOTEL_API_URL = 'api/hotels';
   constructor(private http: HttpClient) {}
+
 /*
   public getHotels(): IHotel[]{
 
@@ -63,7 +62,7 @@ export class HotelListService {
 
   //getOne
 
-  /*public getHotelById(id:number): Observable<IHotel>{
+  /*public getHotelBy(id:number): Observable<IHotel>{
 
     if(id==0){
       return  of(this.getDefaultHotel());
@@ -96,6 +95,7 @@ export class HotelListService {
       imageUrl: null
     }
   }
+
   public updateHotel(hotel:IHotel): Observable<IHotel>{
     const url = `${this.HOTEL_API_URL}/${hotel.id}`;
 
@@ -104,8 +104,20 @@ export class HotelListService {
     );
   }
 
-    createHotel(hotel: IHotel): Observable<IHotel>{
+    public createHotel(hotel: IHotel): Observable<IHotel>{
+    hotel = {
+      ...hotel,
+      imageUrl:'assets/images/3.png',
+      id:null
+    };
     return this.http.post<IHotel>(this.HOTEL_API_URL, hotel).pipe(
+      catchError(this.handleError)
+    );
+  }
+
+  public delete(id: number): Observable<{}>{
+    const url = `${this.HOTEL_API_URL}/${id}`;
+    return this.http.delete<IHotel>(url).pipe(
       catchError(this.handleError)
     );
   }
