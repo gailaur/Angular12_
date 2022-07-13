@@ -1,6 +1,5 @@
 import {InMemoryDbService} from "angular-in-memory-web-api";
 import {IHotel} from "../models/hotel";
-
 export class HotelData implements InMemoryDbService{
 
   createDb(): Record<string, IHotel[]>{
@@ -26,6 +25,7 @@ export class HotelData implements InMemoryDbService{
       },
       {
         id: 3,
+        
         hotelName: 'Abudja new look palace',
         description: 'Séjour complet avec service de voitures',
         price: 120.12,
