@@ -13,14 +13,14 @@ import {InMemoryWebApiModule} from "angular-in-memory-web-api";
 import {HotelData} from "../shared/api/hotel.data";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatSelectModule} from "@angular/material/select";
-import {HotelEditGuard} from "../shared/guards/hotel-edit.guard";
+//import {HotelEditGuard} from "../shared/guards/hotel-edit.guard";
 
 
 const routes: Routes = [
   {path: '', component:HotelListComponent},
   {path: 'hotels', component:HotelListComponent},
   {path: 'hotels/:id', component: HotelDetailComponent, canActivate:[HotelDetailGuard]},
-  {path: 'hotels/:id/edit', component: HotelEditComponent, canDeactivate:[HotelEditGuard]},
+  //{path: 'hotels/:id/edit', component: HotelEditComponent, canDeactivate:[HotelEditGuard]},
 ];
 
 
